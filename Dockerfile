@@ -17,7 +17,6 @@ RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_
   && wget -q https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
   && chmod +x /usr/local/bin/helm
 
-
 # Install Helm plugins
 RUN helm init --client-only
 RUN helm plugin install https://github.com/viglesiasce/helm-gcs.git
@@ -25,9 +24,13 @@ RUN helm plugin install https://github.com/databus23/helm-diff
 RUN helm plugin install https://github.com/chartmuseum/helm-push
 RUN helm plugin install https://github.com/futuresimple/helm-secrets
 
-
 RUN curl -L https://github.com/Praqma/helmsman/releases/download/v1.8.0/helmsman_1.8.0_linux_amd64.tar.gz | tar zx \
  && mv helmsman /usr/local/bin/helmsman \
  && chmod +x /usr/local/bin/helmsman
+
+ # Install jfrog client
+ RUN curl -fL https://getcli.jfrog.io | sh && \
+     mv jfrog /usr/local/bin && \
+     chmod a+x /usr/local/bin/jfrog
 
 RUN npm install -g simple-scaffold
