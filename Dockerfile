@@ -26,7 +26,7 @@ RUN helm plugin install https://github.com/chartmuseum/helm-push
 RUN helm plugin install https://github.com/futuresimple/helm-secrets
 
 
-RUN curl -L https://github.com/Praqma/helmsman/releases/download/v1.7.4/helmsman_1.7.4_linux_amd64.tar.gz | tar zx \
+RUN curl -L https://github.com/Praqma/helmsman/releases/download/v1.8.0/helmsman_1.8.0_linux_amd64.tar.gz | tar zx \
  && mv helmsman /usr/local/bin/helmsman \
  && chmod +x /usr/local/bin/helmsman
 
