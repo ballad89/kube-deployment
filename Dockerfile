@@ -23,6 +23,7 @@ RUN helm init --client-only
 RUN helm plugin install https://github.com/viglesiasce/helm-gcs.git
 RUN helm plugin install https://github.com/databus23/helm-diff
 RUN helm plugin install https://github.com/chartmuseum/helm-push
+RUN helm plugin install https://github.com/futuresimple/helm-secrets
 
 
 RUN curl -L https://github.com/Praqma/helmsman/releases/download/v1.7.4/helmsman_1.7.4_linux_amd64.tar.gz | tar zx \
